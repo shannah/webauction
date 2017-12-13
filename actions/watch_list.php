@@ -28,10 +28,10 @@ class actions_watch_list {
 					
 				";
 			
-		$res = mysql_query($sql, df_db());
-		if (!$res ) trigger_error(mysql_error(df_db()), E_USER_ERROR);
+		$res = xf_db_query($sql, df_db());
+		if (!$res ) trigger_error(xf_db_error(df_db()), E_USER_ERROR);
 		$data = array();
-		while ($row = mysql_fetch_assoc($res) ) {
+		while ($row = xf_db_fetch_assoc($res) ) {
 			if ( $row['high_bidder'] != getUsername() ) $row['high_bidder'] = '';
 			$data[] = $row;
 		}

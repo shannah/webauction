@@ -88,9 +88,9 @@ class tables_users{
 	
 	function beforeSave(&$record){
 		if ( $record->valueChanged('username') ){
-			$res = mysql_query("select count(*) from `users` where `username`='".addslashes($record->strval('username'))."'", df_db());
-			if ( !$res ) trigger_error(mysql_error(df_db()), E_USER_ERROR);
-			list($num) = mysql_fetch_row($res);
+			$res = xf_db_query("select count(*) from `users` where `username`='".addslashes($record->strval('username'))."'", df_db());
+			if ( !$res ) trigger_error(xf_db_error(df_db()), E_USER_ERROR);
+			list($num) = xf_db_fetch_row($res);
 			if ( $num > 0 ) return PEAR::raiseError("That username already exists.  Please choose a different one.", DATAFACE_E_NOTICE);
 		}	
 	}

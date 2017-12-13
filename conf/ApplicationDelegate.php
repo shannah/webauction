@@ -21,26 +21,26 @@ class conf_ApplicationDelegate {
 	function block__before_main_column(){
 		if ( isAdmin() ) {
 			$sql = "select sum(bid_amount) from bids b where not exists ( select bid_id from bids b2 where b2.product_id=b.product_id and b2.bid_amount > b.bid_amount) and exists ( select product_id from products p where p.product_id=b.product_id)";
-			$res = mysql_query($sql, df_db());
-			list($amt) = mysql_fetch_row($res);
+			$res = xf_db_query($sql, df_db());
+			list($amt) = xf_db_fetch_row($res);
 			echo "<div style=\"float: right;\">Total Bids Currently: \$".number_format($amt,2).'</div>';
 		}
 		
-		$res = mysql_query("select convert_tz(NOW(), 'SYSTEM','".addslashes(df_utc_offset())."')", df_db());
+		$res = xf_db_query("select convert_tz(NOW(), 'SYSTEM','".addslashes(df_utc_offset())."')", df_db());
 		if ( !$res ){
-			trigger_error(mysql_error(df_db()), E_USER_ERROR);
+			trigger_error(xf_db_error(df_db()), E_USER_ERROR);
 		}
-		list($now) = mysql_fetch_row($res);
-		@mysql_free_result($res);
+		list($now) = xf_db_fetch_row($res);
+		@xf_db_free_result($res);
 		
 		echo '<div style="float: right; padding-right: 5px;">The Current Time is '.htmlspecialchars(date('h:i a T',strtotime($now))).'</div>';
 	}
 	
 	function getCategoriesMenuOptions(){
 		$sql = "select p.product_id, pc.category_id, pc.category_name, count(*) as num from products p inner join product_categories pc on p.product_categories rlike concat('[[:<:]]',pc.category_id,'[[:>:]]') group by pc.category_id";
-		$res = mysql_query($sql, df_db());
+		$res = xf_db_query($sql, df_db());
 		$out = array();
-		while ( $row = mysql_fetch_assoc($res) ) $out[] = $row;
+		while ( $row = xf_db_fetch_assoc($res) ) $out[] = $row;
 		return $out;
 	
 	}

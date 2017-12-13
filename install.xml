@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<app>
+    <db user="webauction"
+        password="password"
+        host="localhost"
+        name="webauction"/>
+
+    <dir path="media/photos" writable="true" allowhttp="true"/>
+</app>

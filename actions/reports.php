@@ -7,10 +7,10 @@ class actions_reports {
 			from products p left join closed w on p.product_id=w.product_id";
 	
 		//$sql = "select *, high_bid_amount, high_bidder from products p left join ( select product_id, bid_amount as high_bid_amount, username as high_bidder from bids order by high_bid_amount desc limit 1) b on p.product_id=b.product_id";
-		$res = mysql_query($sql, df_db());
+		$res = xf_db_query($sql, df_db());
 		import('Dataface/RecordGrid.php');
 		$data = array();
-		while ($row = mysql_fetch_assoc($res) ) {
+		while ($row = xf_db_fetch_assoc($res) ) {
 			if ( @$row['winner']){
 				$user = new Dataface_Record('users', array('username'=>$row['winner']));
 				$row['email'] = $user->val('email');

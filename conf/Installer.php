@@ -4,7 +4,7 @@ class conf_Installer {
 		$sql[] = 'ALTER TABLE `config` ADD `title` VARCHAR( 64 ) NULL AFTER `auction_id`';
 		
 		foreach ($sql as $q){
-			mysql_query($q, df_db());
+			xf_db_query($q, df_db());
 			
 		}
 	
