@@ -1,0 +1,5 @@
+RewriteEngine on
+#RewriteBase /files
+# scaling small, medium, large
+#RewriteRule ^photos/([^\?]+)\?{0,1}([^\?]*)$ index.php?%{QUERY_STRING}&path=$1
+RewriteRule ^photos/([^\?]+)\?{0,1}([^\?]*)$ index.php

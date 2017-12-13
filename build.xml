@@ -1,0 +1,61 @@
+<project name="dataface" default="prodn" basedir=".">
+   <target name="init">
+   	  <property name="sourceDir" value="."/>
+      <property name="libDir" value="lib"/>
+      <property name="datafaceDir" value="${sourceDir}/dataface" />
+      <property name="docsDir" value="docs" />
+      <property name="testsDir" value="tests" />
+      <property name="tablesDir" value="tables" />
+      <property name="casOutputDir" value="/tmp/dataface_cas_module" />
+      <property name="sourceGuardianEncode5" value="/usr/local/php5/sg6/bin/encode5"/>
+      <property name="feedburnerOutputDir" value="/tmp/dataface_feedburner_module" />
+   </target>
+
+   <target name="clean" depends="init">
+   	  <deltree dir="${sourceDir}/dataface" />
+   </target>
+
+  <target name="prodn" depends="clean">
+  	<exec dir="${sourceDir}" executable="svn">
+  		<arg value="export"/>
+  		<arg value="http://weblite.ca/svn/dataface/core/branches/1.3.x"/>
+  		<arg path="${datafaceDir}"/>
+     </exec>
+     <deltree dir="${datafaceDir}/${docsDir}"/>
+     <deltree dir="${datafaceDir}/${testsDir}"/>
+     <deltree dir="${datafaceDir}/${tablesDir}"/>
+     <deltree dir="${datafaceDir}/lib/Auth"/>
+     <deltree dir="${datafaceDir}/lib/Cache"/>
+     <deltree dir="${datafaceDir}/lib/DB"/>
+     <delete file="${datafaceDir}/lib/DB.php"/>
+     <deltree dir="${datafaceDir}/lib/Event"/>
+     <delete file="${datafaceDir}/lib/excel.php"/>
+     
+     <deltree dir="${datafaceDir}/lib/FX"/>
+     <delete file="${datafaceDir}/lib/LiveUser.php"/>
+     <deltree dir="${datafaceDir}/lib/PHPUnit"/>
+     <delete file="${datafaceDir}/lib/PHPUnit.php"/>
+     <deltree dir="${datafaceDir}/lib/Perm"/>
+     <deltree dir="${datafaceDir}/lib/Var_Dump"/>
+     <delete file="${datafaceDir}/lib/Var_Dump.php"/>
+     <deltree dir="${datafaceDir}/lib/docs"/>
+     <deltree dir="${datafaceDir}/lib/phpThumb"/>
+     <deltree dir="${datafaceDir}/lib/simpletest"/>
+	 <deltree dir="${datafaceDir}/modules/Auth"/>
+	 <deltree dir="${datafaceDir}/modules/Feedburner"/>
+     <delete file="${datafaceDir}/Dataface/QueryTranslator.php"/>
+     <deltree dir="${datafaceDir}/lib/dhtmlxGrid/samples" />
+     <deltree dir="${datafaceDir}/lib/dhtmlxGrid/src" />
+     <deltree dir="${datafaceDir}/lib/dhtmlxGrid/doc" />
+     <delete file="${datafaceDir}/lib/dhtmlxGrid/dhtmlxGrid.zip" />
+     <deltree dir="${datafaceDir}/lib/FCKeditor"/>
+   	<deltree dir="${datafaceDir}/lib/HTTP"/>
+   	<deltree dir="${datafaceDir}/lib/phpThumb"/>
+   	<deltree dir="${datafaceDir}/lib/tiny_mce"/>
+  
+  </target>
+   
+   
+   
+
+</project>

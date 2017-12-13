@@ -1,0 +1,12 @@
+{use_macro file="Dataface_Main_Template.html"}
+	{fill_slot name="main_section"}
+		<h1>Auction Summary Reports</h1>
+		<div style="width: 600; overflow: scroll">
+		{if $grid}
+			{$grid}
+		{else}
+			Nothing to report at this time.  There are currently no auctions running.
+		{/if}
+		</div>
+	{/fill_slot}
+{/use_macro}

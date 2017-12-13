@@ -1,0 +1,99 @@
+.controllerJumpMenu { display: none}
+
+#product-list {
+
+
+}
+
+#product-list li img {
+	float: left;
+	margin: 0 1em 1em 0.5em;
+
+}
+
+#product-list li {
+
+	margin: 0;
+	padding: 0;
+}
+
+#product-list li dl.product-details dt, #product-list li dl.product-details dd {
+	display: inline;
+	padding: 0;
+	padding-right: 1em;
+	margin: 0;
+
+}
+
+#product-list li dl.product-details dt {
+
+
+}
+
+#product-list li dl.product-details dd {
+
+}
+
+#product-list li dl.product-details {
+
+}	
+
+
+#product-list li:hover {
+	background-color: #eaeaea;
+}
+
+
+/** APPLICATION MENU STYLES **/
+div.menu-block dl dd {
+	margin: 0;
+	padding: 0;
+}
+div.menu-block dl dd a {
+	display: block;
+	height: 32px;
+	text-decoration: none;
+	background-repeat: no-repeat;
+	padding-left: 38px;
+	font-size: 14px;
+	padding-top: 8px;
+
+}
+
+#menu-watchlist a {
+	background-image: url(images/utilities-system-monitor.png);
+}
+
+#menu-edit-profile a {
+	background-image: url(images/system-users.png);
+}
+
+#menu-auction-settings a {
+	background-image: url(images/preferences-system.png);
+}
+
+#menu-add-product a {
+	background-image: url(images/document-new.png);
+}
+
+#menu-add-category a {
+	background-image: url(images/folder-new.png);
+}
+
+#menu-view-reports a {
+	background-image: url(images/printer.png);
+
+}
+
+/** Product List Styles **/
+
+ol#product-list li {
+	list-style-type: none;
+	list-style-image: none;
+	border-bottom: 1px solid #eaeaea;
+}
+
+ol#product-list li a {
+	text-decoration: none;
+	
+}

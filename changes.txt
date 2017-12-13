@@ -1,0 +1,97 @@
+0.3.12
+May 29, 2013
+    - Included latest 1.3.x Xataface branch with bug fixes and security patches.
+    
+0.3.11
+January 30, 2012
+	- Included latest 1.3.x Xataface branch with bug fixes (including registration not working).
+
+0.3.10
+August 18, 2011
+	- Added Web.config file to block access to conf.ini file when run on IIS.
+	
+0.3.9
+August 6, 2011
+	- If the locale is set to a language that uses commas for decimal points,
+	  there was a bug in 0.3.7 and 0.3.8 that may chop of the decimals when
+	  saving.  This fixes the bug.
+	  
+0.3.8
+August 4, 2011
+	- Fixed some PHP 5.3 deprecation warnings.
+	- Fixed error that shows up when viewing reports when there are no products currently
+	  in the auction.
+	  
+0.3.7
+	- No changes to webauction.  Includes latest xataface with critical 
+	  bugfix (http://bugs.weblite.ca/view.php?id=786)
+
+0.3.6
+	- Xataface updated to 1.3rc2 (lite version).
+	- Added support for "forgot password", and now requires
+	  users to retype password when changing it.
+        - Includes critical output cache patch if using output cache
+	  to correct issue that allowed users to accidently access
+          the sessions of other users given the correct circumstances.
+
+
+0.3.5
+	- Replaces the dataface folder with xataface-1.0.7 which fixes a critical bug (#391)
+
+0.3.4
+	- Fixed bug 387.  Once again changed the way that timezones are stored so that DST doesn't
+	  need to be explicitly specified.
+
+0.3.3
+	Fixed critical issue with timezones that caused auctions to close at the wrong times.
+	Added "The current time is ...." to the top left of each page so user knows what time
+	it currently is on the server.
+	
+
+0.3.1
+	Fixed issue http://bugs.weblite.ca/view.php?id=166
+	
+0.3-bundle
+Dec. 29, 2007
+	- Added icons from Tango Icon Library (http://tango.freedesktop.org/Tango_Icon_Gallery)
+	- Bundled trimmed-down version of dataface with application so you
+		no longer need to install dataface yourself.
+	- Removed auto-installer.  Replaced with simple installation instructions.
+	- Added timezone support.  Now it is possible to set a default timezone
+		for the auction.  And each user can set his own timezone.
+
+0.2
+June 21, 2007
+	- Added Reverse auction mode.
+	
+0.1 dev 3
+April 17, 2007
+
+	- Added TTW (Through the web) config.
+	
+	- Added auto emailing to winners.
+	
+	- bug fixes
+	
+0.1 dev 2
+April 16, 2007
+
+	- Added ability to set bid increment for each item individually.
+	
+	- Added --force-validate flag to bid form to make it so that administrators
+		also get validated when submitting a bid. They are still exempt from 
+		validation if they enter a bid via the "New Record" form.
+		
+	- Improved error messages on bids so that they see nice message instead
+	  of ugly plain PEAR Error.
+	  
+0.1 dev 1
+April 11, 2007
+
+	Initial commit by Steve Hannah, Faculty of Applied Sciences, Simon Fraser University.
+	
+	This version is the preliminary version of auction created for the SFU 
+	plant sale.  It is not ready for general distribution because it requires 
+	LDAP to get user info.  It is also set up by default to use CAS.
+	
+	These settings can be changed in the conf.ini file.
