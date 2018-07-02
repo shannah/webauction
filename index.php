@@ -1,11 +1,15 @@
 <?php
 $install = false;
-if ( !file_exists('conf.ini') ){
+$confIni = 'conf.ini';
+if (!file_exists($confIni)) {
+	$confIni = 'conf.ini.php';
+}
+if ( !file_exists($confIni) ){
 	$install = true;
 
 } else {
 
-	$conf = parse_ini_file('conf.ini', true);
+	$conf = parse_ini_file($confIni, true);
 	if ( $conf['_database']['user'] == 'Your Username Here' ){
 		$install = true;
 	}
